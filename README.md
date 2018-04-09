@@ -2,7 +2,7 @@
 Simple scripts to simulate and collect data on AvAc's golden capsule pulls. Repository contains the following files:
 
 ## goldsim.py
-A Python 2.7 implementation of the simulator. Contains framework for running and collecting data on multiple iterations for statistics reasons (think Monte Carlo sim). Also allows for setting runs for specific characters, e.g running 100k strings of attempts to get Rick Jones (last time I did this, though, the sim took over half an hour to run).
+A Python 2.7 implementation of the simulator. Contains framework for running and collecting data on multiple iterations for statistics reasons (think Monte Carlo sim). Also allows for setting runs for specific characters, e.g running 100k strings of attempts to get Rick Jones (last time I did this, though, the sim took over half an hour to run all 100k iterations).
 
 TODO: Add some way to easily update list of heroes and chances (current implementation is hard-coded). Could read in csv files with csv package? Also, add way to specify conditions for success, e.g "get Hulk to M5".
 
