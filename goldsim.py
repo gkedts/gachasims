@@ -25,13 +25,14 @@ Information regarding gold capsules
 heroes = ["Black Panther", "Black Widow", "Bucky Barnes", "Captain America", "Enchantress", "Falcon", "Hawkeye", "Hulk", "Iron Man", "J.O.C.A.S.T.A", "Loki", "Mockingbird", "Maria Hill", "Ms. Marvel", "Phil Coulson", "Quake", "Red Hulk", "Spider-Woman", "Thor", "Tigra", "Valkyrie", "Vision", "War Machine", "Wasp", "Wiccan", "Winter Soldier","Rick Jones","Skaar"]
 vals = [3, 5, 8, 10, 30]
 count = [26, 26, 26, 26, 28]
-
+rarities = {1:10,2:30,3:80,4:180,5:380}
 
 """
 User input commands, to avoid manually going in to change the script when we want something different
 """
 
 character = 0
+no_rarity = True
 
 while character != "" and character not in heroes:
     print 'Please enter a character from the following list: \n'
@@ -40,6 +41,13 @@ while character != "" and character not in heroes:
     character = raw_input("\nEnter a character (or press ENTER to skip): ")
     
 #print character
+
+while no_rarity:
+    M = input("Enter a number between 1-5 for desired rarity: ")
+    while not (M >= 1 and M <= 5):
+        print "\nInvalid input."
+        M = input("Enter a number between 1-5 for desired rarity: ")
+    no_rarity = False
 
 N = input("Input number of iterations to run: ")     # number of iterations to run
 
@@ -52,8 +60,8 @@ Tiers = [Tier(v,c) for (v,c) in zip(vals, count)]
 caps = []
 
 for n in range(N):
-    #if n%1000 == 0:
-    #    print "Running next 1000 iterations..."
+    if n%2500 == 0:
+        print "Running the "+str(n)+"th iteration..."
     inventory = {h:0 for h in heroes}
     success = False
     i = 0
@@ -68,9 +76,9 @@ for n in range(N):
         i += 1
         if character == "":
         #    print "You did not enter a character."
-            success = (inventory[H] >= 10)
+            success = (inventory[H] >= rarities[M])
         else:
-            success = (inventory[character] >= 10)
+            success = (inventory[character] >= rarities[M])
 
     caps.append(i)
 
