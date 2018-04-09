@@ -1,19 +1,35 @@
+"""
+A Python 2.7 implementation of the gold capsule pull simulator. Can simulate multiple and specific pulls, as well as collect and export data to a .csv.
+"""
+
 from numpy import random as r
 from collections import Counter
 import csv
+
+
+"""
+Defining classes for later use; add more classes and functions here in the future
+"""
 
 class Tier:
     def __init__(self, value, heroes):
         self.value = value
         self.heroes = heroes
 
-heroes = ["Black Panther", "Black Widow", "Bucky Barnes", "Captain America", "Enchantress", "Falcon", "Hawkeye", "Hulk", "Iron Man", "J.O.C.A.S.T.A", "Loki", "Mockingbird", "Maria Hill", "Ms. Marvel", "Phil Coulson", "Quake", "Red Hulk", "Spider-Woman", "Thor", "Tigra", "Valkyrie", "Vision", "War Machine", "Wasp", "Wiccan", "Winter Soldier","Rick Jones","Skaar"]
 
+"""
+Information regarding gold capsules
+"""
+
+#TODO: make these not hard-coded. Probably by reading them in from a .csv.
+heroes = ["Black Panther", "Black Widow", "Bucky Barnes", "Captain America", "Enchantress", "Falcon", "Hawkeye", "Hulk", "Iron Man", "J.O.C.A.S.T.A", "Loki", "Mockingbird", "Maria Hill", "Ms. Marvel", "Phil Coulson", "Quake", "Red Hulk", "Spider-Woman", "Thor", "Tigra", "Valkyrie", "Vision", "War Machine", "Wasp", "Wiccan", "Winter Soldier","Rick Jones","Skaar"]
 vals = [3, 5, 8, 10, 30]
 count = [26, 26, 26, 26, 28]
-ts = []
 
-Tiers = [Tier(v,c) for (v,c) in zip(vals, count)]
+
+"""
+User input commands, to avoid manually going in to change the script when we want something different
+"""
 
 character = 0
 
@@ -23,15 +39,21 @@ while character != "" and character not in heroes:
         print h
     character = raw_input("\nEnter a character (or press ENTER to skip): ")
     
-print character
+#print character
 
 N = input("Input number of iterations to run: ")     # number of iterations to run
+
+
+"""
+Main script body
+"""
+
+Tiers = [Tier(v,c) for (v,c) in zip(vals, count)]
 caps = []
 
 for n in range(N):
-    if n%1000 == 0:
-        print "Running next 1000 iterations..."
-    #print "Running new iteration..."
+    #if n%1000 == 0:
+    #    print "Running next 1000 iterations..."
     inventory = {h:0 for h in heroes}
     success = False
     i = 0
@@ -45,7 +67,7 @@ for n in range(N):
         #print H, inventory[H]
         i += 1
         if character == "":
-            print "You did not enter a character."
+        #    print "You did not enter a character."
             success = (inventory[H] >= 10)
         else:
             success = (inventory[character] >= 10)
@@ -53,6 +75,11 @@ for n in range(N):
     caps.append(i)
 
 bins = Counter(caps)
+
+
+"""
+Exports data on number of capsules opened per run to .csv file
+"""
 
 csvfile = open('capsuledata.csv', 'w')
 writer = csv.writer(csvfile)
