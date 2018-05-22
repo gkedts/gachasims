@@ -4,7 +4,7 @@ Simple scripts to simulate and collect data on AvAc's golden capsule pulls. Repo
 ## capsule_math.py
 Using convolution, returns the probability distribution for N shards of a character. Much faster than goldsim.py and its many variations, but the input probability distribution is currently hard-coded, so it only works for finding the number of pulls required to get Dr. Strange from the Strange capsule.
 
-TODO: allow user to input a probability distribution as a dictionary, and return numbers from that. Or add all probability distributions we currently have access to, and allow user to choose which one to use.
+TODO: ~~allow user to input a probability distribution as a dictionary, and return numbers from that. Or add all probability distributions we currently have access to, and allow user to choose which one to use.~~
 
 ## goldsim.py
 A Python 2.7 implementation of the simulator. Contains framework for running and collecting data on multiple iterations for statistics reasons (think Monte Carlo sim). Also allows for setting runs for specific characters, e.g running 100k strings of attempts to get Rick Jones (last time I did this, though, the sim took over half an hour to run all 100k iterations). As of most recent update, also allows for setting desired rarity, e.g running strings of attempts at getting any character to M5.
