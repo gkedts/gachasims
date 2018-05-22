@@ -1,14 +1,13 @@
 # gachasims
 Simple scripts to simulate and collect data on AvAc's golden capsule pulls. Repository contains the following files:
 
+## capsule_math.py
+Using convolution, returns the probability distribution for N shards of a character. Much faster than goldsim.py and its many variations, but the input probability distribution is currently hard-coded, so it only works for finding the number of pulls required to get Dr. Strange from the Strange capsule.
+
+TODO: allow user to input a probability distribution as a dictionary, and return numbers from that. Or add all probability distributions we currently have access to, and allow user to choose which one to use.
+
 ## goldsim.py
 A Python 2.7 implementation of the simulator. Contains framework for running and collecting data on multiple iterations for statistics reasons (think Monte Carlo sim). Also allows for setting runs for specific characters, e.g running 100k strings of attempts to get Rick Jones (last time I did this, though, the sim took over half an hour to run all 100k iterations). As of most recent update, also allows for setting desired rarity, e.g running strings of attempts at getting any character to M5.
-
-NOTE: since the probability of getting any specific x30 gold capsule is so low, you'll need to run a LOT of iterations to get any batch of data that fully represents the entire spectrum of possibilities for anything higher than M2. M3, for instance, statistically requires around 200 million iterations before you'll even see one instance where someone got a character to M3 using 3 x30 capsules. M4 requires at least 3e+16 iterations, and M5 takes so many iterations I had to find a high precision online calculator to find the number because otherwise I kept getting divide by zero errors.
-
-(The number, by the way, is around 1e+352 iterations, which is greater than a googol. Incidentally, it is also much larger than the estimated number of hydrogen atoms in the entire universe.) 
-
-For this reason, it's not recommended that you use this sim for grabbing statistics for anything higher than M3, unless you want to wait past the heat death of the sun and the collapse of our galaxy.
 
 TODO: Add some way to easily update list of heroes and chances (current implementation is hard-coded). Could read in csv files with csv package?
 
@@ -20,4 +19,4 @@ TODO: Maybe add features? To be fair, a spreadsheet and/or Discord bot don't nee
 ## Other plans
 + Write a C++ implementation of the simulator, in hopes that it will run faster than the Python version, thereby allowing us to run a million simulations of someone trying to get Rick Jones. Useful for visualizations, I guess, and running a million simulations of someone trying to get Rick Jones. Could also approximate some of the probability combinations in the future, maybe?
 + Do something similar in Julia, reasoning being that Julia is supposed to be good at handling this kind of information.
-+ Something to do with matrices, probably.
++ ~~Something to do with matrices, probably.~~
