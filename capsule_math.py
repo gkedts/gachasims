@@ -40,7 +40,7 @@ writer.writerow(["Capsules", "Chance"])
 
 while len(prev) <= N or sum(prev[N:]) < prob:
 	if len(prev) > N:
-		writer.writerow([i,sum(prev[N:])])
+		writer.writerow([k,sum(prev[N:])])
 	prev = np.convolve(prev, dist)
 	k += 1
 	print k, sum(prev[N:])
