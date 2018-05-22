@@ -13,6 +13,15 @@ To run:
 
 TODO: ~~allow user to input a probability distribution as a dictionary, and return numbers from that. Or add all probability distributions we currently have access to, and allow user to choose which one to use.~~
 
+## convolve.js
+An implementation of the convolution operator in JS. Takes two arrays as an input, and returns their convolution as another array. Can be used to calculate the probability distribution for a specific character's shards from opening two or more of the same capsule. 
+
+To use:
+
+1. Your input arrays should include all drop rates for the relevant character's shards, up to the maximum possible, even if zero, e.g for Strange's shards dropping from Strange's capsules: `[0.34, 0.32, 0, 0.26, 0, 0.08]`. (Note that the chance of getting 0 Strange shards from a single Strange capsule is 34%, and the chance of getting 2 or 4 shards is 0%.)
+2. The function will return an array `conv` where the index of each value corresponds to the number of shards for that probability, e.g `conv[2]` is the probability that you will get two shards.
+3. The probability distribution for opening two capsules is `b = convolve(a,a)`, where `a` is the initial probability distribution array. The probability distribution for opening three capsules is `c = convolve(b,a)`, where `b` is the probability distribution for opening two capsules. Basically, for each additional capsule you want to open, you convolve the current probability distribution array one more time with the initial probability distribution array.
+
 ## goldsim.py
 A Python 2.7 implementation of the simulator. Contains framework for running and collecting data on multiple iterations for statistics reasons (think Monte Carlo sim). Also allows for setting runs for specific characters, e.g running 100k strings of attempts to get Rick Jones (last time I did this, though, the sim took over half an hour to run all 100k iterations). As of most recent update, also allows for setting desired rarity, e.g running strings of attempts at getting any character to M5.
 
