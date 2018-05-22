@@ -4,6 +4,13 @@ Simple scripts to simulate and collect data on AvAc's golden capsule pulls. Repo
 ## capsule_math.py
 Using convolution, returns the probability distribution for N shards of a character. Much faster than goldsim.py and its many variations, but the input probability distribution is currently hard-coded, ~~so it only works for finding the number of pulls required to get Dr. Strange from the Strange capsule.~~ so will need to be manually updated every time a new capsule comes out.
 
+To run:
+
+1. Make sure you have the Python 2.7 and the numpy package installed.
+2. Run the script as usual, so `python capsule_math.py` in your command line if you're running bash.
+3. At some point, the script will prompt you to give it a file name. The file will automatically be a .csv, so just give it a name, i.e entering "herpderp" will give you a file named "herpderp.csv", while entering "herpderp.csv" will give you a file named "herpderp.csv.csv" (so don't do this!).
+4. After the script is finished running, check the folder where you ran the script for your newly-generated .csv!
+
 TODO: ~~allow user to input a probability distribution as a dictionary, and return numbers from that. Or add all probability distributions we currently have access to, and allow user to choose which one to use.~~
 
 ## goldsim.py
