@@ -1,5 +1,5 @@
 # gachasims
-Simple scripts to simulate and collect data on AvAc's golden capsule pulls. Repository contains the following files:
+Simple scripts to simulate and collect data on AvAc's capsule pulls. Repository contains the following files:
 
 ## capsule_math.py
 Using convolution, returns the probability distribution for N shards of a character. Much faster than goldsim.py and its many variations, but the input probability distribution is currently hard-coded, ~~so it only works for finding the number of pulls required to get Dr. Strange from the Strange capsule.~~ so will need to be manually updated every time a new capsule comes out.
