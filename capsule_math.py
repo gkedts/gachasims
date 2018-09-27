@@ -1,6 +1,18 @@
 import numpy as np
 import csv
 
+capsules = {'timefog':{'gold':{0:33.0/34,3:0.35/34,5:0.25/34,8:0.20/34,10:0.15/34,30:0.05/34},
+                           'silver':{0:296.8/3,1:4.8/9,3:4.8/9}},
+            'rising':{'inferno':{0:0.89,5:0.05,10:0.03,20:0.02,80:0.01},
+                      'squirrel girl':{0:0.73,10:0.17,20:0.08,80:0.02},
+                      'spider-gwen':{0:0.73,10:0.17,20:0.08,80:0.02},
+                      'captain marvel':{0:0.9,10:0.075,80:0.025},
+                      'ms. marvel':{0:0.9,10:0.075,80:0.025},
+                      'quake':{0:0.9,10:0.075,80:0.025}},
+            'inferno':{'inferno':{0:0.05,1:0.73,2:0.145,3:0.0275,4:0.015,5:0.01,6:0.0075,7:0.005,8:0.005,9:0.0025,10:0.0025}}
+               }
+
+"""
 capsules = {'timefog':{'gold':{0:28.0/29,3:0.35/29,5:0.25/29,8:0.20/29,10:0.15/29,30:0.05/29},
 						'silver':{0:296.8/3,1:4.8/9,3:4.8/9}},
 			'infinity':{'strange':{0:0.87,10:0.09,20:0.04},'teen groot':{0:0.9,10:0.06,20:0.04},
@@ -17,7 +29,7 @@ capsules = {'timefog':{'gold':{0:28.0/29,3:0.35/29,5:0.25/29,8:0.20/29,10:0.15/2
 						'punisher':{0:0.94,1:0.04,3:0.02}},
 
 			}
-
+"""
 print sorted(capsules.keys())
 cap = capsules[raw_input("Choose a capsule from the above list: ").lower()]
 
@@ -42,6 +54,7 @@ writer = csv.writer(csvfile)
 
 writer.writerow(["Capsules", "Chance"])
 
+#while k < 2100:
 while len(prev) <= N or sum(prev[N:]) < prob:
 	if len(prev) > N:
 		writer.writerow([k,sum(prev[N:])])
